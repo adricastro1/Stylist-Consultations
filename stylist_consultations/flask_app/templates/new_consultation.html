@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Consultation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body style="background-color:#A5A5A5;">
+    <nav class="d-flex justify-content-between align-items-center col-10 mx-auto">
+        <h1 class="d-flex col-4 justify-content-around">Add a Consultation</h1>
+        <div class="d-flex col-4 justify-content-around">
+            <a href="/dashboard" class="btn btn-dark">Dashboard</a>
+            <a href="/logout" class="btn btn-dark">Logout</a>
+        </div>
+    </nav>
+    <div class="d-flex justify-content-evenly">
+        <div class="col-5 p-4 mx-auto>
+            <!-- <img src="../imgs/Adaline.jpg" alt="adaline_style" width="600px"> 
+                <img src="/static/imgs/Adaline.jpg" alt="adaline_style" width="700px">
+                <p>Adaline St. James has been a stylist for over 10 years with an impressive list of clients under her belt. If you’re looking for a chic timeless look, Adaline specializes in making you look like you should be photographed for Paris fashion week.</p>
+                <img src="/static/imgs/Phoebe.jpg" alt="phoebe_style" width="700px">
+                <p>Looking for a fun eccentric wardrobe to match your personality? Look no further than Phoebe Adams! With experience in styling for magazine photo shoots and your favorite tv shows, Phoebe will make sure you turn heads everywhere you go.  </p>
+                <img src="/static/imgs/Zoe.jpg" alt="zoe_style" width="700px">
+                <p>Edgy, cool, and effortless? Zoe Hale has mastered the trifecta like no other. Zoe has only been stylist for 3 years and is already making waves in the fashion industry. Feel powerful and make it look easy with a diverse wardrobe that will reflect your confidence.</p>
+            </div>
+            <form action="/create/consultation" method="post" class="col-5 p-4 my-4 bg-dark text-light mx-auto">
+                {% with messages = get_flashed_messages(category_filter=['consultation']) %}
+                {% if messages %}
+                <div class="alert alert-danger" role="alert">
+                    <strong>Flash AHHHHHHH!!!!</strong>
+                    {% for message in messages %}
+                    <p>{{message}}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% endwith %}
+                
+                <div class="d-flex justify-content-between col-12">
+                    <div class="col-8 ">
+                        <div class="form-group">
+                        <h3>Choose a stylist from below based on your own style</h3>
+                        <label for="name">Stylist:</label>
+                        <select name="stylist_name" class="form-control">
+                            <option>Zoe Hale</option>
+                            <option>Adaline St. James</option>
+                            <option>Phoebe Adams</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Date of consultation:</label>
+                        <input type="date" name="date" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="event">Event:</label>
+                        <textarea name="event"  cols="30" rows="2" class="form-control"></textarea>
+                    </div>
+                    <input type="submit" value="Add Consultation" class="btn btn-warning">
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

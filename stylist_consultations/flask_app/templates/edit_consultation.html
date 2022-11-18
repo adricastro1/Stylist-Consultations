@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Consultation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body style="background-color:#A5A5A5;">
+    <nav class="d-flex justify-content-between align-items-center col-10 mx-auto">
+        <h1 class="d-flex col-4 justify-content-around">Edit a Consultation</h1>
+        <div class="d-flex col-4 justify-content-around">
+            <a href="/new/consultation" class="btn btn-dark">Add Consultation</a>
+            <a href="/dashboard" class="btn btn-dark">Dashboard</a>
+            <a href="/logout" class="btn btn-dark">Logout</a>
+        </div>
+    </nav>
+    <img src="/static/imgs/banner1.jpg" alt="banner" class="d-flex justify-content-between align-items-center col-10 mx-auto">
+    <form action="/update/consultation" method="post" class="col-6 p-4 my-4 bg-dark text-light mx-auto">
+        {% with messages = get_flashed_messages(category_filter=['consultation']) %}
+            {% if messages %}
+            <div class="alert alert-danger" role="alert">
+                <strong>Flash</strong>
+                    {% for message in messages %}
+                    <p>{{message}}</p>
+                    {% endfor %}
+            </div>
+            {% endif %}
+        {% endwith %}
+        
+        <div class="d-flex justify-content-between col-12 ">
+            <input type="hidden" name="id" value={{edit.id}}>
+            <div class="col-4">
+                <div class="form-group mx-auto">
+                    <label for="name">Stylist:</label>
+                    <select name="stylist_name" class="form-control" value="{{edit.stylist_name}}">
+                        <option>Zoe Hale</option>
+                        <option>Adaline St. James</option>
+                        <option>Phoebe Adams</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="name">Date of consultation:</label>
+                    <input type="date" name="date" class="form-control" value="{{edit.date}}">
+                </div>
+                <div class="form-group">
+                    <label for="event">Event:</label>
+                    <textarea name="event"  cols="30" rows="2" class="form-control">{{edit.event}}</textarea>
+                </div>
+                <input type="submit" value="Update" class="btn btn-warning">
+            </div>
+        </div>
+    </form>
+</body>
+</html>
